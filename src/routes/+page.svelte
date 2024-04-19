@@ -12,7 +12,7 @@
 </script>
 <div class="p-4">
 	<label>Items
-		<input bind:value={itemQty} type="range" min="5" max="50">
+		<input bind:value={itemQty} type="range" min="5" max="100">
 		{itemQty}
 	</label>
 	<select on:change={()=>{generateItems(itemQty); sorted= false;}} bind:value={strategy}

@@ -53,7 +53,7 @@
 			<div class="{!selected ? 'bg-blue-500' : 'bg-red-500'} basis-2/4 rounded-md" style="height: {value}%">&nbsp;</div>
 		{/each}
 	</div>
-	{#if strategy === 2}
+	{#if strategy === 3}
 		<div>
 			<span class="flex justify-center">Sleep</span>
 			<div class="w-full h-[60dvh] flex flex-row items-center gap-0.5">

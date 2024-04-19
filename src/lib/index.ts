@@ -7,12 +7,14 @@ interface Item {
 enum SortStrategy {
 	BubbleSort,
 	QuickSort,
-	SleepSort
+	InsertionSort,
+	SleepSort,
 }
 
 const Strategies = [
 	'Bubble Sort',
 	'Quick Sort',
+	'Insertion Sort',
 	'Sleep Sort'
 ];
 
@@ -24,6 +26,9 @@ function sortInitiator(items: Item[], strategy: SortStrategy) {
 			break;
 		case SortStrategy.QuickSort:
 			steps = quickSort(items);
+			break;
+		case SortStrategy.InsertionSort:
+			steps = insertionSort(items);
 			break;
 		default:
 			break;
@@ -83,6 +88,21 @@ function quickSort(items: Item[]) {
 	const steps: number[][] = [];
 	const copy = [...items];
 	quickSortRec(copy, steps, 0, copy.length - 1);
+	return steps;
+}
+
+function insertionSort(items: Item[]) {
+	const steps: number[][] = [];
+	const copy: Item[] = [...items];
+	for (let i = 1; i < copy.length; i++) {
+		const current = copy[i];
+		let j = i - 1;
+		while (j >= 0 && copy[j].value > current.value) {
+			swap(copy, j + 1, j);
+			steps.push([j + 1, j]);
+			j -= 1;
+		}
+	}
 	return steps;
 }
 
